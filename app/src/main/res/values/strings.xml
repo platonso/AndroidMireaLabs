@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Solozobov</string>
+    <string name="zero">0</string>
+    <string name="button">Counter</string>
+    <string name="_2nd_activity">2nd activity</string>
+    <string name="switch2">Switch to the 2nd activity</string>
+</resources>
