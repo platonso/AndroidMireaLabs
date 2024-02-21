@@ -10,20 +10,81 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="@string/count"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.126" />
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="100dp"
+        android:background="@drawable/roundedtw"
+        android:padding="20dp"
+        android:text="@string/zero"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
 
     <Button
         android:id="@+id/button"
+        android:layout_width="155dp"
+        android:layout_height="83dp"
+        android:text="@string/button"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.797" />
+
+    <EditText
+        android:id="@+id/step"
+        android:background="@drawable/rounded_input"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="400dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/step"
+        android:inputType="number"
+        android:textColorHint="#78909C"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/startWith"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/startWith"
+        android:background="@drawable/rounded_input"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="400dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/start_with"
+        android:inputType="number"
+        android:textColor="#676767"
+        android:textColorHint="#78909C"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/step"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="136dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:constraint_referenced_ids="startWith,startWith" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

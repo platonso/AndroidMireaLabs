@@ -1,38 +1,47 @@
 package com.example.androidmirealabs;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.example.androidmirealabs.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
+    private int counter = 0;
+
+    private ActivityMainBinding binding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding=ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        ConstraintLayout constraintLayout = new ConstraintLayout(this);
-        TextView textView = new TextView(this);
-        textView.setBackgroundColor(0xFA76AAA9);
+        /*
+        String startWithString = binding.startWith.getText().toString();
+        int startWith = 0; // Значение по умолчанию, если поле ввода пустое
 
-        textView.setText("Count");
-        textView.setTextSize(30);
+        if (!startWithString.isEmpty()) {
+            startWith = Integer.parseInt(startWithString);
+        }
 
+        String stepString = binding.step.getText().toString();
+        int step = 0;
 
-        ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams
-                (ViewGroup.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(430, 400, 60, 50);
-        layoutParams.leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID;
-        layoutParams.topToTop = ConstraintLayout.LayoutParams.PARENT_ID;
-        textView.setLayoutParams(layoutParams);
-        textView.setPadding(20, 20, 20, 20);
-        constraintLayout.addView(textView);
-        setContentView(constraintLayout);
+        if (!startWithString.isEmpty()) {
+            step = Integer.parseInt(startWithString);
+        }
+         */
 
 
+        binding.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                counter++;
+                binding.count.setText(String.valueOf(counter));
+            }
+        });
 
 
     }

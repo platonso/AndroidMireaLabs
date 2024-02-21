@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AndroidMireaLabs</string>
+    <string name="count">Count</string>
+    <string name="button">Button</string>
+    <string name="zero">0</string>
+    <string name="start_with">start with</string>
+    <string name="step">step</string>
 </resources>
