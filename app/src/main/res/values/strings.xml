@@ -3,6 +3,9 @@
     <string name="count">Count</string>
     <string name="button">Button</string>
     <string name="zero">0</string>
-    <string name="start_with">start with</string>
-    <string name="step">step</string>
+    <string name="start_with">0</string>
+    <string name="step">1</string>
+    <string name="apply">Apply</string>
+    <string name="start_value">Start value</string>
+    <string name="Step">Step</string>
 </resources>

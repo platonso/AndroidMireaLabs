@@ -44,14 +44,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.797" />
+        app:layout_constraintVertical_bias="0.858" />
 
     <EditText
         android:id="@+id/step"
-        android:background="@drawable/rounded_input"
         android:layout_width="160dp"
         android:layout_height="48dp"
         android:layout_marginTop="400dp"
+        android:autofillHints="1"
+        android:background="@drawable/rounded_input"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/step"
@@ -65,15 +66,14 @@
 
     <EditText
         android:id="@+id/startWith"
-        android:background="@drawable/rounded_input"
         android:layout_width="160dp"
         android:layout_height="48dp"
         android:layout_marginTop="400dp"
+        android:background="@drawable/rounded_input"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/start_with"
         android:inputType="number"
-        android:textColor="#676767"
         android:textColorHint="#78909C"
         android:textSize="25sp"
         app:layout_constraintEnd_toStartOf="@+id/step"
@@ -86,5 +86,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="startWith,startWith" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="265dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/apply"
+        android:textColorHighlight="#884F4F"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startWith" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/start_value"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/startWith"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="240dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/Step"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/step"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
