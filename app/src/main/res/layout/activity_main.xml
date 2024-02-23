@@ -79,7 +79,8 @@
         app:layout_constraintEnd_toStartOf="@+id/step"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group"
@@ -93,7 +94,6 @@
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
         android:text="@string/apply"
-        android:textColorHighlight="#884F4F"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

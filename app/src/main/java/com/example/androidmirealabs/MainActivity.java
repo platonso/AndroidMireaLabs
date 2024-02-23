@@ -10,8 +10,8 @@ import com.example.androidmirealabs.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     private int counter = 0;
-    private int startValue;
-    private int step;
+    private int startValue = 0;
+    private int step = 1;
 
     private ActivityMainBinding binding;
 
@@ -28,14 +28,14 @@ public class MainActivity extends AppCompatActivity {
                 String startWithString = binding.startWith.getText().toString();
                 String stepString = binding.step.getText().toString();
 
-                if (startWithString.isEmpty()){
-                    startValue =0; // значение по умолчанию, если поле ввода пустое
-                }else {
+                if (startWithString.isEmpty()) {
+                    startValue = 0; // значение по умолчанию, если поле ввода пустое
+                } else {
                     startValue = Integer.parseInt(startWithString);
                 }
 
-                if (stepString.isEmpty()){
-                    step=1; // значение по умолчанию, если поле ввода пустое
+                if (stepString.isEmpty()) {
+                    step = 1; // значение по умолчанию, если поле ввода пустое
                 } else {
                     step = Integer.parseInt(stepString);
                 }
