@@ -54,6 +54,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("counter", counter);
+        outState.putInt("startValue", startValue);
+        outState.putInt("step", step);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        counter = savedInstanceState.getInt("counter");
+        binding.count.setText(String.valueOf(counter));
+        startValue = savedInstanceState.getInt("startValue");
+        step = savedInstanceState.getInt("step");
+    }
+
 }
 
 
