@@ -69,6 +69,7 @@
         android:layout_width="160dp"
         android:layout_height="48dp"
         android:layout_marginTop="400dp"
+        android:autofillHints="0"
         android:background="@drawable/rounded_input"
         android:ems="10"
         android:gravity="center"
@@ -81,12 +82,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="DuplicateSpeakableTextCheck" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="startWith,startWith" />
 
     <Button
         android:id="@+id/button2"
@@ -103,7 +98,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="54dp"
         android:layout_marginBottom="8dp"
         android:text="@string/start_value"
         android:textSize="15sp"
@@ -114,7 +109,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="240dp"
+        android:layout_marginStart="245dp"
         android:layout_marginBottom="8dp"
         android:text="@string/Step"
         android:textSize="15sp"
