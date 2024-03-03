@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AndroidMireaLabs</string>
+    <string name="_7_499_600_80_80">Телефон +7 499 600-80-80</string>
+    <string name="https_mirea_ru">Посетите сайт https://mirea.ru/</string>
+    <string name="enter_name">Введите имя</string>
+    <string name="show_toast">show Toast</string>
+    <string name="show_snackbar">show Snackbar</string>
 </resources>
