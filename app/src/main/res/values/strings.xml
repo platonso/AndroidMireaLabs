@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">AndroidMireaLabs</string>
+    <string name="app_name" translatable="false">AndroidMireaLabs</string>
+    <string name="name">Solozobov Platon IKBO-11-22</string>
+    <string name="welcome_message" translatable="false">Welcome %1$s! It\'s already %2$d : %3$d
+    </string>
+
+
+    <dimen name="horizontal_margin">64dp</dimen>
+    <dimen name="vertical_margin">32dp</dimen>
+    <dimen name="text_size">23sp</dimen>
+
+
 </resources>
