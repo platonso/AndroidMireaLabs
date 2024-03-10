@@ -24,12 +24,12 @@ public class SecondActivity extends AppCompatActivity {
         textView.setTextSize(26);
         textView.setPadding(16, 16, 16, 16);
         Bundle arguments = getIntent().getExtras();
-
+        User user;
         if (arguments != null) {
-            String name = arguments.getString("name");
-            String surname = arguments.getString("surname");
-            String group = arguments.getString("group");
-            textView.setText("Name: " + name + "\nSurname: " + surname + "\nGroup: " + group);
+            user = arguments.getParcelable(User.class.getSimpleName());
+            textView.setText("Name: " + user.getName() + "\nSurname: " +
+                    user.getSurname() +
+                    "\nGroup: " + user.getGroup());
         }
         setContentView(textView);
 

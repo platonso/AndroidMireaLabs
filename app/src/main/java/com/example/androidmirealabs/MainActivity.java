@@ -28,12 +28,9 @@ public class MainActivity extends AppCompatActivity {
         String surname = binding.surname.getText().toString();
         String group = binding.group.getText().toString();
 
+        User user = new User(name, surname, group);
         Intent intent = new Intent(this, SecondActivity.class);
-
-        intent.putExtra("name", name);
-        intent.putExtra("surname", surname);
-        intent.putExtra("group", group);
-
+        intent.putExtra(User.class.getSimpleName(), user);
         startActivity(intent);
     }
 }
