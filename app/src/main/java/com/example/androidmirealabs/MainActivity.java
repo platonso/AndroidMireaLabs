@@ -3,44 +3,51 @@ package com.example.androidmirealabs;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.androidmirealabs.databinding.ActivityMainBinding;
-
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding binding;
-    String[] food = {"Бургер", "Паста", "Пицца", "Салат",
-            "Суши"};
+    ArrayList<State> states = new ArrayList<State>();
+    ListView countriesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_main);
+        // начальная инициализация списка
+        setInitialData();
+        // получаем элемент ListView
+        countriesList = findViewById(R.id.countriesList);
+        // создаем адаптер
+        StateAdapter stateAdapter = new StateAdapter(this, R.layout.list_item,
+                states);
+        // устанавливаем адаптер
+        countriesList.setAdapter(stateAdapter);
+        // слушатель выбора в списке
+        AdapterView.OnItemClickListener itemListener = new
+                AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View v, int position,
+                                            long id) {
+                        // получаем выбранный пункт
+                        State selectedState = (State) parent.getItemAtPosition(position);
+                        Toast.makeText(getApplicationContext(), "Был выбран пункт " +
+                                        selectedState.getName(),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                };
+        countriesList.setOnItemClickListener(itemListener);
+    }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_multiple_choice, food);
-        // устанавливаем для списка адаптер
-        binding.foodList.setAdapter(adapter);
-        // добавляем для списка слушатель
-        binding.foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                SparseBooleanArray selected = binding.foodList.getCheckedItemPositions();
-                String selectedItems = "";
-                for (int i = 0; i < food.length; i++) {
-                    if (selected.get(i))
-                        selectedItems += food[i] + ",";
-                }
-                // установка текста элемента TextView
-                binding.selection.setText("Выбрано: " + selectedItems);
-            }
-        });
+    private void setInitialData() {
+        states.add(new State("Антарктида", "Мак-Мердо", R.drawable.aq));
+        states.add(new State("Непал", "Катманду", R.drawable.np));
+        states.add(new State("Уганда", "Кампала", R.drawable.ug));
+        states.add(new State("Сейшельские Острова", "Виктория", R.drawable.sc));
+        states.add(new State("Гренландия", "Нуук", R.drawable.gl));
     }
 }
