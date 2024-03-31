@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.AndroidMireaLabs" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#C01515</item>
     </style>
 
     <style name="Theme.AndroidMireaLabs" parent="Base.Theme.AndroidMireaLabs" />
