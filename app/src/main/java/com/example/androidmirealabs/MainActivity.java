@@ -35,22 +35,19 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        final TextView moveText =
-                findViewById(R.id.moveText);
-        moveText.setOnClickListener(new View.OnClickListener() {
+        ImageView scaleImage =
+                findViewById(R.id.scaleImage);
+        scaleImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ObjectAnimator moveX =
-                        ObjectAnimator.ofFloat(moveText, "translationX", 0f, 300f);
-                moveX.setDuration(1000);
-
-                ObjectAnimator moveY =
-                        ObjectAnimator.ofFloat(moveText, "translationY", 0f, 900f);
-                moveY.setDuration(1000);
-
-                AnimatorSet moveAnim = new AnimatorSet();
-                moveAnim.playTogether(moveX, moveY); // Запуск анимации по оси X и Y одновременно
-                moveAnim.start();
+                ObjectAnimator scaleX =
+                        ObjectAnimator.ofFloat(scaleImage, "scaleX", 1f, 2.6f);
+                ObjectAnimator scaleY =
+                        ObjectAnimator.ofFloat(scaleImage, "scaleY", 1f, 2.6f);
+                scaleX.setDuration(1000);
+                scaleY.setDuration(1000);
+                scaleX.start();
+                scaleY.start();
             }
         });
 
