@@ -1,11 +1,14 @@
 package com.example.androidmirealabs;
 
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,14 +35,24 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        ImageView imageView =
-                findViewById(R.id.rotateImageView);
-        ObjectAnimator rotateAnim =
-                ObjectAnimator.ofFloat(imageView, "rotation", 0f, 360f);
-        rotateAnim.setDuration(2000);
-        rotateAnim.setRepeatCount(ObjectAnimator.INFINITE);
-        rotateAnim.setRepeatMode(ObjectAnimator.RESTART);
-        rotateAnim.start();
-    }
+        final TextView moveText =
+                findViewById(R.id.moveText);
+        moveText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ObjectAnimator moveX =
+                        ObjectAnimator.ofFloat(moveText, "translationX", 0f, 300f);
+                moveX.setDuration(1000);
 
+                ObjectAnimator moveY =
+                        ObjectAnimator.ofFloat(moveText, "translationY", 0f, 900f);
+                moveY.setDuration(1000);
+
+                AnimatorSet moveAnim = new AnimatorSet();
+                moveAnim.playTogether(moveX, moveY); // Запуск анимации по оси X и Y одновременно
+                moveAnim.start();
+            }
+        });
+
+    }
 }
