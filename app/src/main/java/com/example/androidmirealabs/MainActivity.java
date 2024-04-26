@@ -1,9 +1,11 @@
 package com.example.androidmirealabs;
 
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,15 +13,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import android.media.MediaPlayer;
-import android.widget.Button;
-
 import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private MediaPlayer mediaPlayer;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,34 +32,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button playButton = findViewById(R.id.playButton);
-        mediaPlayer = new MediaPlayer();
-        try {
-            mediaPlayer.setDataSource("https://pub0301.101.ru:8443/stream/air/mp3/256/100");
-            mediaPlayer.prepare();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!mediaPlayer.isPlaying()) {
-                    mediaPlayer.start();
-                } else {
-                    mediaPlayer.pause();
-                }
-            }
-        });
-
+        ImageView imageView =
+                findViewById(R.id.rotateImageView);
+        ObjectAnimator rotateAnim =
+                ObjectAnimator.ofFloat(imageView, "rotation", 0f, 360f);
+        rotateAnim.setDuration(2000);
+        rotateAnim.setRepeatCount(ObjectAnimator.INFINITE);
+        rotateAnim.setRepeatMode(ObjectAnimator.RESTART);
+        rotateAnim.start();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
-        }
-    }
 }
