@@ -7,9 +7,13 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Вызываем метод для парсинга JSON
         createJsonUsingGson();
+
+        readJsonFromFile();
     }
 
     public void createJsonUsingGson() {
@@ -48,6 +54,31 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
 
+        }
+    }
+
+    public void readJsonFromFile() {
+        try {
+            File file = new File(getFilesDir(), "student.json");
+            FileInputStream fis = new FileInputStream(file);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+            }
+            reader.close();
+
+            Gson gson = new Gson();
+            Student studentRead = gson.fromJson(sb.toString(), Student.class);
+
+            Log.d("RRR", "Name from JSON: " + studentRead.name);
+            Log.d("RRR", "Surname from JSON: " + studentRead.surname);
+            Log.d("RRR", "Group from JSON: " + studentRead.group);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
