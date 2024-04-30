@@ -19,6 +19,18 @@ public class BookProvider extends ContentProvider {
     public boolean onCreate() {
         DBHelper dbHelper = new DBHelper(getContext());
         db = dbHelper.getWritableDatabase();
+        if (db != null) {
+            // Добавим начальные данные в базу данных
+            ContentValues values = new ContentValues();
+            values.put("title", "Book Title 1");
+            values.put("author", "Author 1");
+            db.insert("books", null, values);
+
+            values.clear();
+            values.put("title", "Book Title 2");
+            values.put("author", "Author 2");
+            db.insert("books", null, values);
+        }
         return (db != null);
     }
 
@@ -59,24 +71,5 @@ public class BookProvider extends ContentProvider {
     public String getType(Uri uri) {
         return "vnd.android.cursor.dir/vnd.example.books";
     }
-
-
 }
 
-class DBHelper extends SQLiteOpenHelper {
-
-    public DBHelper(Context context) {
-        // конструктор суперкласса
-        super(context, "myDB", null, 1);
-    }
-
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-    }
-}
